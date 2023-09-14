@@ -1,6 +1,6 @@
 // Used to store the pokemonList array
 
-let pokemonList = [];
+const pokemonList = [];
 pokemonList = [
   {index: 1, name: "Bulbasaur", type: ["GRASS", "POISON"], height: 0.7, total: 318}, 
   {index: 2, name: "Ivysaur", type: ["GRASS", "POISON"], height: 1, total: 405}, 
