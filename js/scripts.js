@@ -22,6 +22,7 @@ let pokemonRepository = (function () {
         console.log("Error: invalid data type for Pokemon object.");
       }
     }
+  }
 
     function getAll() {
       return pokemonList;
@@ -31,34 +32,46 @@ let pokemonRepository = (function () {
       let query = document.getElementById("searchBar").value.toLowerCase();
       let matchingPokemon = pokemonList.filter(function(pokemon) {
         return pokemon.name.toLowerCase() === name.toLowerCase();
-      )};
+      });
       return matchingPokemon;
     }
 
+    function printArrayDetails(pokemon) {
+      let pokemonDetails = document.createElement("p");
+      if (pokemon.height > 1) {
+        pokemonDetails.textContent = pokemon.name + " (height: " + pokemon.height + ") - Wow, that's big!";
+      } else {
+        pokemonDetails.textContent = pokemon.name + " (height: " + pokemon.height + ")";
+      }
+      document.body.appendChild(pokemonDetails);
+    }
 
     return {
       add: add,
       addv: addv,
       getAll: getAll,
-      findByName: findByName
+      findByName: findByName,
+      printArrayDetails: printArrayDetails
     };
   
-}());
+})();
 // End of IIFE pokemonRepository
 
 // 
-let matchingPokemon = pokemonRepository.findByName("getElementById");
 
-// declaration of function printArrayDetails
-function printArrayDetails(pokemon) {
-    if (pokemon.height > 1) {
-      document.write(pokemon.name + " (height: " + pokemon.height + ") - Wow, that's big!" + "<br>");
-    } else {
-      document.write(pokemon.name + " (height: " + pokemon.height + ")" + "<br>");
-    }
-  }
+
+// // declaration of function printArrayDetails
+// function printArrayDetails(pokemon) {
+//     if (pokemon.height > 1) {
+//       document.write(pokemon.name + " (height: " + pokemon.height + ") - Wow, that's big!" + "<br>");
+//     } else {
+//       document.write(pokemon.name + " (height: " + pokemon.height + ")" + "<br>");
+//     }
+//   }
+
+
   // forEach loop to print out the pokemonList array
-  pokemonRepository.getAll().forEach(printArrayDetails);
+  pokemonRepository.getAll().forEach(pokemonRepository.printArrayDetails);
 
 
 
