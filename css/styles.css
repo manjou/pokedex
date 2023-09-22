@@ -9,7 +9,6 @@
 body {
   background: #FFCC00;
   font-size: 20px;
-  margin: 20px;
 }
 h1 {
   text-align: center;
@@ -19,10 +18,10 @@ h1 {
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background: #fff;
   padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  margin: 0;
 }
 
 nav ul {
@@ -38,8 +37,71 @@ nav li {
 .search {
   width: 50vh;
   align-items: center;
+  justify-content: center;
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 10px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
+
+.pokemon-list {
+  background-color: #D5A100;
+  border-radius: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 20px;
+
+}
+
+.pokemon-list li {
+  background: #fff;
+  border-radius: 10px;
+  padding: 5px;
+  text-align: center;
+  list-style: none;
+  cursor: pointer;
+}
+
+button.button-class {
+  display: grid;
+  margin: 0 auto;
+  width: 100%;
+  background-color: #0075BE;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+button.button-class:hover {
+  animation: bounce 0.5s linear;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  10% {
+    transform: translateY(-2px);
+  }
+  20% {
+    transform: translateY(-6px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+  80% {
+    transform: translateY(-0px);
+  }
+}
+

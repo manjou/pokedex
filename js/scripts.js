@@ -36,14 +36,28 @@ let pokemonRepository = (function () {
       return matchingPokemon;
     }
 
-    function printArrayDetails(pokemon) {
-      let pokemonDetails = document.createElement("p");
-      if (pokemon.height > 1) {
-        pokemonDetails.textContent = pokemon.name + " (height: " + pokemon.height + ") - Wow, that's big!";
-      } else {
-        pokemonDetails.textContent = pokemon.name + " (height: " + pokemon.height + ")";
-      }
-      document.body.appendChild(pokemonDetails);
+    function addListItem(pokemon) {
+      let pokemonList = document.querySelector(".pokemon-list");
+      let listpokemon = document.createElement("li");
+      let button = document.createElement("button");
+      button.innerText = pokemon.name;
+      button.classList.add("button-class");
+      listpokemon.appendChild(button);
+      pokemonList.appendChild(listpokemon);
+      // button.addEventListener("click", function() {
+      //   showDetails(pokemon);
+      // });
+      addEventListenerButton(button, pokemon);
+    }
+
+    function addEventListenerButton(button, pokemon) {
+      button.addEventListener("click", function() {
+        showDetails(pokemon);
+      });
+    }
+
+    function showDetails(pokemon) {
+        console.log(pokemon);
     }
 
     return {
@@ -51,27 +65,18 @@ let pokemonRepository = (function () {
       addv: addv,
       getAll: getAll,
       findByName: findByName,
-      printArrayDetails: printArrayDetails
+      addListItem: addListItem,
+      showDetails: showDetails,
+      addEventListenerButton: addEventListenerButton
     };
   
 })();
 // End of IIFE pokemonRepository
 
-// 
-
-
-// // declaration of function printArrayDetails
-// function printArrayDetails(pokemon) {
-//     if (pokemon.height > 1) {
-//       document.write(pokemon.name + " (height: " + pokemon.height + ") - Wow, that's big!" + "<br>");
-//     } else {
-//       document.write(pokemon.name + " (height: " + pokemon.height + ")" + "<br>");
-//     }
-//   }
-
-
-  // forEach loop to print out the pokemonList array
-  pokemonRepository.getAll().forEach(pokemonRepository.printArrayDetails);
+// forEach loop to print out the pokemonList array
+  pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
+  });
 
 
 
