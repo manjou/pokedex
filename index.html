@@ -22,23 +22,34 @@
         </nav>
     </header>
 
-    <div class="search">
-        <form action="#" id="form" role="search" aria-label="Search through the pokemon content">
-            <input type="search" id="searchBar" name="q" placeholder="Search">
-            <button type="submit">Search</button>
-        </form>
-    </div>
+    
+    <main>
 
-    <ul class="pokemon-list">
+        <div class="pokemon-container">
+            <div class="search">
+                <form action="#" id="form" role="search" aria-label="Search through the pokemon content">
+                    <input type="search" id="searchBar" name="q" placeholder="Search">
+                    <button id="btn-search" type="submit">Search</button>
+                </form>
+            </div>  
+            <dialog>
 
-    </ul>
+            </dialog>
+            <ul class="pokemon-list">
+
+            </ul>
+        </div>
+    
+    </main>
+ 
 
 
 
 
 
 
-
+    <script src="js/promise-polyfill.js"></script>
+    <script src="js/fetch-polyfill.js"></script>
     <script src="js/scripts.js"></script>
 </body>
 </html>

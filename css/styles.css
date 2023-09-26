@@ -15,7 +15,12 @@ h1 {
   margin-bottom: 20px;
   font-weight: 900;
 }
+
+header {
+  max-width: 1500px;
+}
 nav {
+  max-width: 1500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,27 +39,63 @@ nav li {
   text-decoration: none;
 }
 
+main {
+  max-width: 1500px;
+}
+
+.pokemon-container {
+  display: block;
+  max-width: 1200px;
+  background: #fff;
+  padding: 20px;
+  margin: 0 auto;
+  /* margin-left: 100px; */
+  margin-top: 50px;
+}
+
 .search {
-  width: 50vh;
-  align-items: center;
-  justify-content: center;
+  width: 70%;
+  align-self: center
   background: #fff;
   padding: 10px;
   margin-bottom: 20px;
-  margin-top: 20px;
+}
+
+#form {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#searchBar {
+  width: 400px;
+  height: 50px;
+  text-align: center;
+  border: solid 1px black;
+  border-radius: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+#btn-search {
+  width: 80px;
+  height: 30px;
+  border-radius: 10px;
 }
 
 .pokemon-list {
   background-color: #D5A100;
+  width: 50%;
   border-radius: 10px;
   padding: 10px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: 20px;
 
 }
 
 .pokemon-list li {
+  display: grid;
   background: #fff;
   border-radius: 10px;
   padding: 5px;

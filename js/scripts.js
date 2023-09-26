@@ -1,28 +1,32 @@
 // IIFE to create a pokemonRepository variable that is not global and can be accessed publicly
 // with functions add, addv, getAll, and findByName
 let pokemonRepository = (function () {
-  let pokemonList = [
-    {name: "Bulbasaur", type: ["GRASS", "POISON"], height: 0.7, total: 318}, 
-    {name: "Ivysaur", type: ["GRASS", "POISON"], height: 1, total: 405}, 
-    {name:"Venusaur", type: ["GRASS", "POISON"], height: 2, total: 525}, 
-    {name: "Charmander", type: ["GRASS", "POISON"], height: 0.6, total: 625}
-  ];
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  
   
     function add(pokemon) {
+      if (
+        typeof pokemon === "object" &&
+        "name" in pokemon 
+      ) {
       pokemonList.push(pokemon);
-    }
-
-    function addv(pokemon) {
-      if (typeof pokemon === "object" && pokemon !== null) {
-        const keys = Object.keys(pokemon);
-        const requiredKeys = ["name", "type", "height", "total"];
-        if (keys.length === requiredKeys.length && requiredKeys.every(key => keys.includes(key))) {
-        pokemonList.push(pokemon);
       } else {
-        console.log("Error: invalid data type for Pokemon object.");
+        console.log("pokemon is not correct");
       }
     }
-  }
+
+  //   function addv(pokemon) {
+  //     if (typeof pokemon === "object" && pokemon !== null) {
+  //       const keys = Object.keys(pokemon);
+  //       const requiredKeys = ["name", "type", "height", "total"];
+  //       if (keys.length === requiredKeys.length && requiredKeys.every(key => keys.includes(key))) {
+  //       pokemonList.push(pokemon);
+  //     } else {
+  //       console.log("Error: invalid data type for Pokemon object.");
+  //     }
+  //   }
+  // }
 
     function getAll() {
       return pokemonList;
@@ -44,9 +48,6 @@ let pokemonRepository = (function () {
       button.classList.add("button-class");
       listpokemon.appendChild(button);
       pokemonList.appendChild(listpokemon);
-      // button.addEventListener("click", function() {
-      //   showDetails(pokemon);
-      // });
       addEventListenerButton(button, pokemon);
     }
 
@@ -56,27 +57,65 @@ let pokemonRepository = (function () {
       });
     }
 
-    function showDetails(pokemon) {
-        console.log(pokemon);
+    function loadList() {
+      return fetch(apiUrl).then(function (response) {
+        return response.json();
+      }).then(function (json) {
+        json.results.forEach(function (item) {
+          let pokemon = {
+            name: item.name,
+            detailsUrl: item.url
+          };
+          add(pokemon);
+          console.log(pokemon);
+        });
+      }).catch(function (e) {
+        console.error(e);
+      })
     }
+
+    function loadDetails(item) {
+      let url = item.detailsUrl;
+      return fetch(url).then(function (response) {
+        return response.json();
+      }).then(function (details) {
+        // Now we add the details to the item
+        item.imageUrl = details.sprites.front_default;
+        item.height = details.height;
+        item.types = details.types;
+      }).catch(function (e) {
+        console.error(e);
+      });
+    }
+
+    function showDetails(pokemon) {
+      loadDetails(pokemon).then(function () {
+        console.log(pokemon);
+        const dialog = document.querySelector('dialog');
+        dialog.showModal();
+      });
+    }
+
 
     return {
       add: add,
-      addv: addv,
-      getAll: getAll,
+      // addv: addv,
+      getAll: getAll,   
       findByName: findByName,
       addListItem: addListItem,
       showDetails: showDetails,
-      addEventListenerButton: addEventListenerButton
+      addEventListenerButton: addEventListenerButton,
+      loadList: loadList,
+      loadDetails: loadDetails
     };
-  
 })();
 // End of IIFE pokemonRepository
 
-// forEach loop to print out the pokemonList array
+pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
+});
 
 
 
