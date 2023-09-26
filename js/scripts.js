@@ -91,8 +91,20 @@ let pokemonRepository = (function () {
     function showDetails(pokemon) {
       loadDetails(pokemon).then(function () {
         console.log(pokemon);
-        const dialog = document.querySelector('dialog');
-        dialog.showModal();
+        const dialog = document.querySelector('#pokemon-modal');
+        document.querySelector('#pokemon-name').innerText = pokemon.name;
+        document.querySelector('#pokemon-height').innerText = "Height:" + pokemon.height;
+        document.querySelector('#pokemon-types').innerText = "Types:" + pokemon.types.map(type => type.type.name).join(', ');
+        document.querySelector('#pokemon-image').src = pokemon.imageUrl;
+        if (!dialog.open) {
+          dialog.showModal();
+        }
+        document.querySelector('#close-dialog').addEventListener('click', function() {
+         document.querySelector('#pokemon-modal');
+         if (dialog.open) {
+           dialog.close();
+         }
+        });
       });
     }
 
