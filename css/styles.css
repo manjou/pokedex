@@ -17,14 +17,13 @@ h1 {
 }
 
 header {
-  max-width: 1500px;
+  padding: 0 1rem;
+  background: #fff;
 }
 nav {
-  max-width: 1500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fff;
   padding: 10px;
   margin: 0;
 }
@@ -39,9 +38,7 @@ nav li {
   text-decoration: none;
 }
 
-main {
-  max-width: 1500px;
-}
+
 
 .pokemon-container {
   display: block;
@@ -55,8 +52,8 @@ main {
 
 .search {
   width: 70%;
-  align-self: center
-  background: #fff;
+  align-self: center;
+  background-color: #fff;
   padding: 10px;
   margin-bottom: 20px;
 }
@@ -79,13 +76,12 @@ main {
 
 #btn-search {
   width: 80px;
-  height: 30px;
   border-radius: 10px;
+  padding: 10px 1rem;
 }
 
 .pokemon-list {
   background-color: #D5A100;
-  width: 50%;
   border-radius: 10px;
   padding: 10px;
   display: grid;

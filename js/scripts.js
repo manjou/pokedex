@@ -16,17 +16,6 @@ let pokemonRepository = (function () {
       }
     }
 
-  //   function addv(pokemon) {
-  //     if (typeof pokemon === "object" && pokemon !== null) {
-  //       const keys = Object.keys(pokemon);
-  //       const requiredKeys = ["name", "type", "height", "total"];
-  //       if (keys.length === requiredKeys.length && requiredKeys.every(key => keys.includes(key))) {
-  //       pokemonList.push(pokemon);
-  //     } else {
-  //       console.log("Error: invalid data type for Pokemon object.");
-  //     }
-  //   }
-  // }
 
     function getAll() {
       return pokemonList;
