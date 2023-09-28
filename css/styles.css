@@ -41,6 +41,7 @@ nav li {
 
 
 .pokemon-container {
+  width: 80%;
   display: block;
   background: #fff;
   padding: 20px;
@@ -140,3 +141,20 @@ button.button-class:hover {
   }
 }
 
+#pokemon-modal {
+  margin: auto;
+  width: 500px;
+  height: 600px;
+  padding: 20px;
+  align-items: center;
+}
+
+#pokemon-image {
+  width: 350px;
+  height: 350px;
+  align-self: center;
+  margin: auto;
+}
+#pokemon-modal button {
+  display: flex;
+  align-self: right;
