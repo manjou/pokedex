@@ -42,8 +42,10 @@ let pokemonRepository = (function () {
 
     function addEventListenerButton(button, pokemon) {
       button.addEventListener("click", function() {
+        loadDetails(pokemon).then(function() {
         showModal(pokemon);
       });
+    });
     }
 
     function loadList() {
@@ -80,11 +82,10 @@ let pokemonRepository = (function () {
     }
 
     function showDetails(pokemon) {
-      loadDetails(pokemon).then(function () {
+      // loadDetails(pokemon).then(function () {
         console.log(pokemon);
         const dialog = document.querySelector('dialog');
         dialog.showModal(pokemon);
-      });
     }
 
     function showModal(pokemon) {
@@ -99,6 +100,7 @@ let pokemonRepository = (function () {
       let closeButtonElement = document.createElement('button');
       closeButtonElement.classList.add('modal-close');
       closeButtonElement.innerHTML = 'X';
+      closeButtonElement.addEventListener('click', hideModal);
 
       let titleElement = document.createElement('h1');
       titleElement.classList.add('pokemon_name');
@@ -129,6 +131,25 @@ let pokemonRepository = (function () {
       modalContainer.classList.add('is-visible');
     }
 
+    function hideModal() {
+      let modalContainer = document.querySelector('#modal-container');
+      modalContainer.classList.remove('is-visible');
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+        hideModal();
+      }
+    });
+
+    modalContainer.addEventListener('click', (e) => {
+      let target = e.target;
+      if (target === modalContainer) {
+        hideModal();
+      }
+    });
+
+
 
     return {
       add: add,
@@ -139,7 +160,8 @@ let pokemonRepository = (function () {
       addEventListenerButton: addEventListenerButton,
       loadList: loadList,
       loadDetails: loadDetails,
-      showModal: showModal
+      showModal: showModal,
+      hideModal: hideModal
     };
 })();
 // End of IIFE pokemonRepository
@@ -150,7 +172,8 @@ pokemonRepository.loadList().then(function() {
   });
 });
 
-
+console.log(pokemonRepository.loadDetails());
+console.log(pokemonRepository.showModal());
 
 
 
