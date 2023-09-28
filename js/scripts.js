@@ -42,7 +42,7 @@ let pokemonRepository = (function () {
 
     function addEventListenerButton(button, pokemon) {
       button.addEventListener("click", function() {
-        showDetails(pokemon);
+        showModal(pokemon);
       });
     }
 
@@ -71,7 +71,9 @@ let pokemonRepository = (function () {
         // Now we add the details to the item
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
-        item.types = details.types;
+        item.types = details.types.map(function (type) {
+          return type.type.name;
+        });
       }).catch(function (e) {
         console.error(e);
       });
@@ -81,21 +83,63 @@ let pokemonRepository = (function () {
       loadDetails(pokemon).then(function () {
         console.log(pokemon);
         const dialog = document.querySelector('dialog');
-        dialog.showModal();
+        dialog.showModal(pokemon);
       });
+    }
+
+    function showModal(pokemon) {
+      let modalContainer = document.querySelector('#modal-container');
+      // Clear all existing modal content
+      modalContainer.innerHTML = '';
+
+      let modal = document.createElement('div');
+      modal.classList.add('modal');
+
+      // Add the new modal content
+      let closeButtonElement = document.createElement('button');
+      closeButtonElement.classList.add('modal-close');
+      closeButtonElement.innerHTML = 'X';
+
+      let titleElement = document.createElement('h1');
+      titleElement.classList.add('pokemon_name');
+      titleElement.innerText = pokemon.name;
+
+      let imageElement = document.createElement('img');
+      imageElement.classList.add('pokemon_image');
+      imageElement.src = pokemon.imageUrl;
+      imageElement.setAttribute('alt', 'Image of ' + pokemon.name);
+      imageElement.setAttribute('height', '300px');
+      imageElement.setAttribute('width', '300px');
+
+      let heightElement = document.createElement('p');
+      heightElement.classList.add('pokemon_height');
+      heightElement.innerText = 'Height: ' + pokemon.height;
+
+      let typesElement = document.createElement('p');
+      typesElement.classList.add('pokemon_types');
+      typesElement.innerText = 'Types: ' + pokemon.types;
+
+      modal.appendChild(closeButtonElement);
+      modal.appendChild(titleElement);
+      modal.appendChild(imageElement);
+      modal.appendChild(heightElement);
+      modal.appendChild(typesElement);
+      modalContainer.appendChild(modal);
+
+      modalContainer.classList.add('is-visible');
     }
 
 
     return {
       add: add,
-      // addv: addv,
       getAll: getAll,   
       findByName: findByName,
       addListItem: addListItem,
       showDetails: showDetails,
       addEventListenerButton: addEventListenerButton,
       loadList: loadList,
-      loadDetails: loadDetails
+      loadDetails: loadDetails,
+      showModal: showModal
     };
 })();
 // End of IIFE pokemonRepository
@@ -105,6 +149,8 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.addListItem(pokemon);
   });
 });
+
+
 
 
 
