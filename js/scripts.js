@@ -53,14 +53,22 @@ let pokemonRepository = (function () {
       let listpokemon = document.createElement("li");
       let button = document.createElement("button");
       let pokemonImage = document.createElement("img");
-      button.innerText = pokemon.name;
+      pokemonImage.classList.add("button_pokemon_image");
       button.classList.add("button-class");
+
+      // fetch the pokemon detail and get the image url
+
+      fetch(pokemon.detailsUrl)
+        .then((response) => response.json())
+        .then((data) => {
+          button.innerHTML = `<span>${pokemon.name}</span><img src="${data.sprites.front_shiny}"/>`;
+        })
+        .catch((err) => console.log("Err: ", err));
+
       listpokemon.appendChild(button);
       button.appendChild(pokemonImage);
-      pokemonImage.setAttribute("src", pokemon.buttonImage);
+      // pokemonImage.setAttribute("src", pokemon.buttonImage);
       pokemonImage.setAttribute("alt", "Image of " + pokemon.name);
-      pokemonImage.setAttribute("height", "200px");
-      pokemonImage.setAttribute("width", "200px");
       pokemonList.appendChild(listpokemon);
       addEventListenerButton(button, pokemon);
     }
@@ -167,7 +175,7 @@ let pokemonRepository = (function () {
 
     return {
       add: add,
-      getAll: getAll,   
+      getAll: getAll,
       findByName: findByName,
       addListItem: addListItem,
       showDetails: showDetails,
