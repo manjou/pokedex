@@ -17,19 +17,12 @@ let pokemonRepository = (function () {
       }
     }
 
-
+// Function declaration for getAll 
     function getAll() {
       return pokemonList;
     }
 
-    function findByName(name) {
-      let query = document.getElementById("searchBar").value.toLowerCase();
-      let matchingPokemon = pokemonList.filter(function(pokemon) {
-        return pokemon.name.toLowerCase() === name.toLowerCase();
-      });
-      return matchingPokemon;
-    }
-
+// Function declaration for loadDetails
     function loadDetails(item) {
       let url = item.detailsUrl;
       return fetch(url).then(function (response) {
@@ -42,12 +35,13 @@ let pokemonRepository = (function () {
         item.types = details.types.map(function (type) {
           return type.type.name;
         });
-       
       }).catch(function (e) {
         console.error(e);
       });
     }
 
+// Function declaration for addListItem
+// Creating a list of pokemon    
     function addListItem(pokemon) {
       let pokemonList = document.querySelector(".pokemon-list");
       let listpokemon = document.createElement("li");
@@ -55,9 +49,7 @@ let pokemonRepository = (function () {
       let pokemonImage = document.createElement("img");
       pokemonImage.classList.add("button_pokemon_image");
       button.classList.add("button-class");
-
       // fetch the pokemon detail and get the image url
-
       fetch(pokemon.detailsUrl)
         .then((response) => response.json())
         .then((data) => {
@@ -73,14 +65,21 @@ let pokemonRepository = (function () {
       addEventListenerButton(button, pokemon);
     }
 
+  // Function declaration for addEventListenerButton
+  // Adding an event listener to the button that opens the modal
     function addEventListenerButton(button, pokemon) {
       button.addEventListener("click", function() {
-        loadDetails(pokemon).then(function() {
+        loadDetails(pokemon)
+        .then(function() {
         showModal(pokemon);
+        });
       });
-    });
     }
 
+
+
+// Function declaration for loadList    
+// getting data from the API
     function loadList() {
       return fetch(apiUrl).then(function (response) {
         return response.json();
@@ -99,7 +98,7 @@ let pokemonRepository = (function () {
     }
 
 
-
+// Declaration of showDetails Function
     function showDetails(pokemon) {
       // loadDetails(pokemon).then(function () {
         console.log(pokemon);
@@ -107,6 +106,7 @@ let pokemonRepository = (function () {
         dialog.showModal(pokemon);
     }
 
+// Declaration of showModal Function
     function showModal(pokemon) {
       let modalContainer = document.querySelector('#modal-container');
       // Clear all existing modal content
@@ -153,6 +153,8 @@ let pokemonRepository = (function () {
       modalContainer.classList.add('is-visible');
     }
 
+// Declaration of hideModal Function
+// & event listeners for hiding the modal
     function hideModal() {
       let modalContainer = document.querySelector('#modal-container');
       modalContainer.classList.remove('is-visible');
@@ -170,6 +172,16 @@ let pokemonRepository = (function () {
         hideModal();
       }
     });
+
+// implementing Search Functionality
+// Function declaration for findByName
+function findByName(name) {
+  let query = document.getElementById("searchBar").value.toLowerCase();
+  let matchingPokemon = pokemonList.filter(function(pokemon) {
+    return pokemon.name.toLowerCase() === name.toLowerCase();
+  });
+  return matchingPokemon;
+}
 
 
 
