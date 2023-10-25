@@ -3,23 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <title>Pokedex</title>
 </head>
 <body>
     <header>
         
-        <nav>
-            <img src="img/Pokémon_logo.png" height="90" alt="Pokemon Logo">
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="#">GitHub</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="./img/Pokémon_logo.png" height="80" alt="Pokemon Image">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://github.com/manjou/pokedex">GitHub</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
     </header>
 
     
@@ -27,21 +41,31 @@
 
       <div class="pokemon-container">
         <div class="about">
-          <h1>About Pokedex</h1>
-          <p>On the main page you find a list of 150 Pokemon with an image of the pokemon.
+          <h1 class="display-3">About Pokedex</h1>
+          <p class="lead">
+            This project is one of the achievements i have to make for the Fullstack Web Develpment Course
+            with CareerFoundry that i am doing since August 2023. 
+            With this Pokedex App I am learning Vanilla JavaScript Basics of variables, datatypes, objects, arrays, functions, IFEE's, promises, fetch(Pokemon API), asynchronous programming and more.
+            </p>
+        <p class="lead">
+            On the main page you find a list of 150 Pokemon with an image of the pokemon making use of CSS Grid Design System.
             If you click on one Pokemon you will get more information about the Pokemon and the original 
-            artwork image of the pokemon.
-            <br>
-            This project is one of the achievements wich i have to make for my study with the Fullstack Web Develpment Course
-            with CareerFoundry. I am learning JavaScript concepts like objects, arrays, functions, IFEE's, promises, fetch,asynchronous programming and more.
-            
+            artwork image of the pokemon on a modal window. I used Bootstrap for the modal window and the Navigation Bar.
           </p>
+            <p class="lead">
+                If you want you can visit my GitHub page where you can find the code of this project.
+                I am still working on the project and will add more features to it. 
+                I am also working on the design of the page to make it more appealing.
+                Please feel free to give me feedback on the project, as i am shure you will find some bugs in it.
         </div>
     </div>
     
     </main>
  
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/promise-polyfill.js"></script>
     <script src="js/fetch-polyfill.js"></script>
     <script src="js/scripts.js"></script>

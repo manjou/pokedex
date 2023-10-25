@@ -48,7 +48,8 @@ let pokemonRepository = (function () {
 // Creating a list of pokemon    
     function addListItem(pokemon) {
       let pokemonList = document.querySelector(".pokemon-list");
-      let listpokemon = document.createElement("li");
+      let listPokemon = document.createElement("li");
+      listPokemon.classList.add("list-group-item");
       let button = document.createElement("button");
       let pokemonImage = document.createElement("img");
       pokemonImage.classList.add("button_pokemon_image");
@@ -64,11 +65,11 @@ let pokemonRepository = (function () {
         })
         .catch((err) => console.log("Err: ", err));
 
-      listpokemon.appendChild(button);
+      listPokemon.appendChild(button);
       button.appendChild(pokemonImage);
       // pokemonImage.setAttribute("src", pokemon.buttonImage);
       pokemonImage.setAttribute("alt", "Image of " + pokemon.name);
-      pokemonList.appendChild(listpokemon);
+      pokemonList.appendChild(listPokemon);
       addEventListenerButton(button, pokemon);
     }
 

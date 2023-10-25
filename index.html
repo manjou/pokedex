@@ -12,21 +12,32 @@
 </head>
 <body>
     <header>
-        
-        <nav>
-            <img src="img/Pokémon_logo.png" height="90" alt="Pokemon Logo">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="https://github.com/manjou/pokedex">GitHub</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+                <img src="./img/Pokémon_logo.png" height="80" alt="Pokemon Image">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://github.com/manjou/pokedex">GitHub</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
     </header>
 
     
     <main>
  
-
         <div class="pokemon-container">
             <div class="search">
                 <form action="#" id="form" role="search" aria-label="Search through the pokemon content">
@@ -54,7 +65,7 @@
                 </div>
               </div>
 
-            <ul class="pokemon-list"></ul>
+            <ul class="pokemon-list list-group"></ul>
         </div>
     
     </main>
