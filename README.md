@@ -8,8 +8,8 @@ The aim of the project was to learn vanilla JavaScript with the basics of variab
 ##Installation##
 To get a local copy of the project, follow these steps:
 
-    Clone the repository to your local machine using git clone https://github.com/manjou/pokedex.git
-    Navigate to the project directory using cd pokedex-app
+    Clone the repository to your local machine using git clone https://github.com/manjou/pokedex.
+    Navigate to the project directory using cd pokedex
     Open the index.html file in your browser
 
 ##Usage##
