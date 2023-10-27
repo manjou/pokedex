@@ -128,7 +128,7 @@ function showModal(pokemon) {
   //creating element for name in modal content
   let nameElement = $("<h1>" + pokemon.name + "</h1>");
   // creating img in modal content
-  let imageElement = $('<img class="modal-img mx-auto d-block" style="height:400px" "width:400px">');
+  let imageElement = $('<img class="modal-img mx-auto d-block img-fluid" style="height:400px" "width:400px">');
   imageElement.attr("src", pokemon.imageUrl);
   // creating element for height in modal container
   let heightElement = $("<p>" + "height : " + pokemon.height + "</p>");

@@ -13,7 +13,6 @@ body {
 h1 {
   text-align: center;
   font-size: 3rem;
-  /* margin-bottom: 20px; */
   font-weight: 900;
 }
 
@@ -21,24 +20,6 @@ header {
   padding: 0 1rem;
   background: #fff;
 }
-/* nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  margin: 0;
-}
-
-nav ul {
-  display: inline-block;
-
-}
-nav li {
-  display: inline-block;
-  margin-left: 20px;
-  text-decoration: none;
-} */
-
 
 
 .pokemon-container {
@@ -48,6 +29,7 @@ nav li {
   padding: 20px;
   margin: 0 auto;
   margin-top: 50px;
+  z-index: 1000;
 }
 
 .search {
@@ -65,19 +47,28 @@ nav li {
 }
 
 #searchBar {
-  width: 400px;
-  height: 50px;
+  display: flex;
+  flex-direction: row;
+  float: left;
+  width: 200px;
+  height: 40px;
   text-align: center;
   border: solid 1px black;
   border-radius: 10px;
   margin-right: 10px;
-  font-size: 20px;
+  font-size: 1em;
 }
 
 #btn-search {
-  width: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
   border-radius: 10px;
   padding: 10px 1rem;
+  font-size: 0.8em;
+  height: 40px;
 }
 
 .pokemon-list {
@@ -145,16 +136,16 @@ button.button-class:hover {
   }
 }
 
-/* Styling Modal */
+/* Styling Modal
 
 /* Modal Container */
-#modal-container {
+/* #modal-container {
   display: none;
 }
-
-#modal-container.is-visible{
+ */
+/* #modal-container.is-visible{
   position: fixed;
-  z-index: 999;
+  z-index: 1100;
   left: 0;
   top: 0;
   width: 100%;
@@ -163,9 +154,9 @@ button.button-class:hover {
   background-color: #D5A100;
   display: grid;
   text-align: center;
-}
+} */
 
-.modal {
+/* .modal {
   margin: auto;
   text-transform: uppercase;
   display: block;
@@ -178,9 +169,10 @@ button.button-class:hover {
   color: #0A285F;
   border: 2px solid #0A285F;
   box-shadow: 0 0 50px #FFCC00;
-}
+} */
 
-.modal-close {
+
+/* .modal-close {
   display: flex;
   float: right;
   vertical-align: bottom;
@@ -190,9 +182,9 @@ button.button-class:hover {
   font-size: 2rem;
   font-weight: 900;
   cursor: pointer;
-}
+} */
 
-.modal-header {
+.modal-header.primary {
   background-color: #0075BE;
   color: white;
   padding: 15px;
@@ -201,7 +193,6 @@ button.button-class:hover {
   margin-bottom: 30px;
   text-align: center;
 }
-
 
 .pokemon_image {
   display: block;
