@@ -3,8 +3,8 @@
 
 ![pokedex-screenshot](https://github.com/manjou/pokedex/assets/103428887/11b7bef6-3e17-477d-a2df-f472d95192bb)
 
-![pokedex-screenshot](https://github.com/manjou/pokedex/assets/103428887/dd058194-ec21-4a09-b774-9a8a778c778f)
 
+![Uploading pokedex-screenshot-modal.png…]()
 
 
 ## Description ##
