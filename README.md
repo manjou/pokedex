@@ -1,6 +1,7 @@
 
 # Pokedex App #
 
+<img src="https://github.com/manjou/pokedex/assets/103428887/11b7bef6-3e17-477d-a2df-f472d95192bb" alt="Image of Pokedex App" width=400>
 ![pokedex-screenshot](https://github.com/manjou/pokedex/assets/103428887/11b7bef6-3e17-477d-a2df-f472d95192bb)
 
 ![pokedex-screenshot-modal](https://github.com/manjou/pokedex/assets/103428887/10bdae86-c750-46cb-96f7-9644ef5f3090)
