@@ -1,8 +1,8 @@
 
 # Pokedex App #
 
-<img src="https://github.com/manjou/pokedex/assets/103428887/11b7bef6-3e17-477d-a2df-f472d95192bb" alt="Image of Pokedex App" width=400>
-<img src="https://github.com/manjou/pokedex/assets/103428887/10bdae86-c750-46cb-96f7-9644ef5f3090" alt="Image of Pokedex App with modal" width=400>
+<img src="https://github.com/manjou/pokedex/assets/103428887/11b7bef6-3e17-477d-a2df-f472d95192bb" alt="Image of Pokedex App" width=400 height=400>
+<img src="https://github.com/manjou/pokedex/assets/103428887/10bdae86-c750-46cb-96f7-9644ef5f3090" alt="Image of Pokedex App with modal" width=400 height=400>
 
 ## Description ##
 This is a Pokedex App created using HTML, CSS, and vanilla JavaScript. The app uses asynchronous programming with the Pokemon API, including fetch and promises. 
